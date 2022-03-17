@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'productsapp/products.css'%}">
     <title>Document</title>
 </head>
 <body>
     <h1>{{heading}}</h1>
+    <div class="product">
     <ul>
-        <li>{{product1}}</li>
-        <li>{{product2}}</li>
-        <li>{{product3}}</li>
+        <li><img src="{%static image1%}"><h1>{{product1}}</h1></li>
+        <li><img src="{%static image2%}"><h1>{{product2}}</h1></li>
+        <li><img src="{%static image3%}"><h1>{{product3}}</h1></li>
     </ul>
+</div>
 </body>
 </html>
