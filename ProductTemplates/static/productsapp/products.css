@@ -20,6 +20,8 @@ li{
     list-style: none;
 }
 img{
-    width: 150px;
-    height: 200px;
+    width: 15px;
+    height: 20px;
+    border: 2px solid black;
+    box-shadow: 4px 4px 5px black;
 }
