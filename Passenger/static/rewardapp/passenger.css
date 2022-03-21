@@ -1,0 +1,19 @@
+h1{
+    margin-bottom: 1.5rem;
+    text-align: center;
+    
+    color: rgb(0, 0, 211);
+}
+.table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table{
+    text-align: center;
+}
+table th,table  td{
+    padding-right: 15px;
+    background-color: rgb(187, 187, 187);
+    border: 1px solid rgb(0, 0, 0);
+}

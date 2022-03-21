@@ -1,0 +1,15 @@
+h1{
+    text-align: center;
+}
+a{
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    width: max-content;
+    padding: 5px 10px;
+    background-color: rgb(163, 163, 163);
+    border: 1px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+}
