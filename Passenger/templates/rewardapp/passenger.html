@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{%static 'rewardapp/passenger.css'%}">
+    <link rel="stylesheet" href="{%static 'rewardapp/passengers.css'%}">
     <title>Document</title>
 </head>
 <body>
@@ -18,15 +18,15 @@
                 <th>Email</th>
                 <th>Reward Points</th>
             </thead>
-        </table>
-        {% for people in passenger %}
-            <tr>
-                <td>{{people.firstName}}</td>
-                <td>{{people.lastName}}</td>
-                <td>{{people.email}}</td>
-                <td>{{people.reward_point}}</td>
-            </tr>
+            {% for people in passenger %}
+                <tr>
+                    <td>{{people.firstName}}</td>
+                    <td>{{people.lastName}}</td>
+                    <td>{{people.email}}</td>
+                    <td>{{people.reward_point}}</td>
+                </tr>
         {% endfor %}
+        </table>
     {% else %}
         <p>Haven't got any passenger information!</p>
     {% endif %}
