@@ -6,31 +6,56 @@ Az Employee adattábla összes objektumát a "qs" változóba menti el.
 print(qs.query)
 A háttérben lefutó sql parancsláncot adja vissza eredményül.
 
-emp=Employee.objekts.get(id=1)
+emp=Employee.objects.get(id=1)
 A get() fügvény egy bizonyos objektumot keres meg. Ebben a példában az 1-es id-val rendelkező objektumot adja vissza.
 print(emp.firstName)
 Az emp változóba eltárolt 1-es id-val rendelkező objektum firstName rekordját adja válaszul.
 
 Filterek:
-filter paranccsal bizonyos kritériumoknak megfelelő objektumokat tudunk kiválasztani az adattáblából
+filter paranccsal bizonyos kritériumoknak megfelelő objektumokat tudunk kiválasztani az adattáblából.
+
 emps=Employee.objects.filter(salary__gt=1100000) -- 1.100.000<
 _gt (GreaterThen):  A fenti példa arra keres rá, hogy mely munkavállalóknak magasabb a fizetése, mint 1.100.000
+
 emps=Employee.objects.filter(salary__gte=1100000) -- 1.100.000<=
 _gte (GgreaterThenEqual): A fenti példa arra keres rá, hogy mely munkavállalóknak magasabb vagy egyenlő a fizetése, mint 1.100.000
+
 emps=Employee.objects.filter(salary__lt=1100000) -- >1.100.000
 _lt (LowerThen):  A fenti példa arra keres rá, hogy mely munkavállalóknak kissebb a fizetése, mint 1.100.000
+
 emps=Employee.objects.filter(salary__lte=1100000) -- >=1.100.000
 _lte (LowerThenEqual): A fenti példa arra keres rá, hogy mely munkavállalóknak kissebb vagy egyenlő a fizetése, mint 1.100.000
+
 emps=Employee.objects.filter(firstName__in=['Király','Uzumaki'])
 _in: Pontosan meghatározott objektum adatokat ad vissza.
+
 emps=Employee.objects.filter(firstName__startswith='U')
 _startswith: Azokat az objektumokat gyüjti össze, amelyek a fenti példában 'U' betűvel kezdődnek.
+
 emps=Employee.objects.filter(firstName__endswith='i')
 _endswith: Azokat az objektumokat gyüjti össze, amelyek a fenti példában 'i' betűvel végződnek.
 
 Get parancsok:
 A get() parancsokkal egy bizonyos objektumra tudunk rászűrni.
+
 emps=Employee.objects.get(firstName__contains='Kir') -- 'Kir'=Király ; 'kir' != 'Kir'
 _contains: Pontosan tartalmazza-e a firstName objektumok valamelyike a megadott keresést. Kis és Nagy betűk figyelembe vannak véve.
+
 emps=Employee.objects.get(firstName__icontains='kir') -- 'Kir'=Király ; 'kir' = 'Kir'
 _contains: Tartalmazza-e a firstName objektumok valamelyike a megadott keresést. Kis és Nagy betűk nincsennek figyelembe véve.
+
+Logikai szeparátorok:
+A djangonak van egy függvénye, ami egyszerübbé és rövidebbé teszi a logikai lekérdezéseket.
+from django.db.models import Q
+
+AND:
+emps=Employee.objects.filter(Q(firstName__startswith='Kir') & Q(lastName__endswith='aru'))
+ÉS logikai szeparátor használati jele " & " . A Q-val meghatározott lekérdezések egyidejű érvényesülése esetén ad vissza értéket.
+Még egyszerübb lekérdezés az AND szeparátorra:
+emps=Employee.objects.filter(firstName__startswith='Kiry' , lastName__endswith='ás')
+OR:
+emps=Employee.objects.filter(Q(firstName__startswith='Kir') | Q(lastName__endswith='aru'))
+Vagy-Vagy "OR" logikai szeparátor használati jele a " | " . A Q függvény biztosítja, hogy csak egyszer keljen meghatározni az adattáblát, utána már csak a lekérdezéseket keljen megírni.
+NOT
+emps=Employee.objects.exclude(salary__gt=1200000)
+A NOT lekérdezésnek nincs külön jele, ennek fügvénye van. a get() és filter() helyett az exclude() függvényben kell megadni a lekérdezést, aminek az eredményét nem akarjuk kilistáztatni.
