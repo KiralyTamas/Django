@@ -110,9 +110,4 @@ Employee.objects.get(firstName='Piri').delete()
 
 UPDATE:
 Ez a parancs csak a MariaDB és MYSQL rendszeren használható, az SQLITE figyelmen kívül hagyja.
-MYSQL:
-Employee.objects.get(firstName='Nara').update(email='narashikamaru@gmail.com')
-SQLITE:
-emp=Employee.objects.get(firstName='Nara')
-emp.email='narashikamaru'
-emp.save()
+Employee.objects.filter(firstName='Nara').update(email='narashikamaru@gmail.com')
