@@ -6,6 +6,10 @@ Az Employee adattábla összes objektumát a "qs" változóba menti el.
 print(qs.query)
 A háttérben lefutó sql parancsláncot adja vissza eredményül.
 
+Count:
+Employee.objects.all().count()
+A count paranccsal az adattáblánk összes sorának darabszámát irathatjuk ki.
+
 emp=Employee.objects.get(id=1)
 A get() fügvény egy bizonyos objektumot keres meg. Ebben a példában az 1-es id-val rendelkező objektumot adja vissza.
 print(emp.firstName)
@@ -59,3 +63,56 @@ Vagy-Vagy "OR" logikai szeparátor használati jele a " | " . A Q függvény biz
 NOT
 emps=Employee.objects.exclude(salary__gt=1200000)
 A NOT lekérdezésnek nincs külön jele, ennek fügvénye van. a get() és filter() helyett az exclude() függvényben kell megadni a lekérdezést, aminek az eredményét nem akarjuk kilistáztatni.
+
+Szelektív lekérdezés:
+Amikor egy adattábla csak bizonyos oszlopainak adataira van szükségünk, akkor érdemes használni a "values_list()","values()" parancsokat.
+values_list:
+emps=Employee.objects.all().values_list('firstName','salary')
+Ebben az esetben csak a Vezetéknevet és a fizetést fogjuk visszakapni értékként.
+values:
+emps=Employee.objects.all().values('firstName','salary')
+A values paranccsal a kulcs:érték párokat kapjuk vissza {} szótár formátumban.
+
+Aggregate (összesítő) műveletek:
+5 hasznos és gyakran használt funkció tartozik ide:
+from django.db.models import Avg, Sum, Min, Max, Count
+Avg:
+emps=Employee.objects.all().aggregate(Avg('salary'))
+Az Avg parancsal a 'salary' fizetések átlag értékét adja vissza eredményként.
+Sum:
+emps=Employee.objects.all().aggregate(Sum('salary'))
+A Sum parancs összeszámolja az összes fizetés értékét és egy szumma értéket ad vissza.
+Min:
+emps=Employee.objects.all().aggregate(Min('salary'))
+A Min parancs a legkissebb fizetést adja vissza eredményül.
+Max:
+emps=Employee.objects.all().aggregate(Max('salary'))
+A Max parancs a legnagyobb fizetést adja viszza eredményül.
+Count:
+emps=Employee.objects.all().aggregate(Count('salary'))
+A Count parancs a fizetések darabszámát adja vissza eredményül.
+
+CREATE, új felhasználó hozzáadása:
+Van egy alap, hosszabb folyamata és egy egyszerübb, gyorsabb.
+Alap:
+e=Employee(firstName='Nara',lastName='Shikamaru',salary='1350000')
+e.save()
+Gyorsabb, ami magát a create parancsot tartalmazza:
+Employee.objects.create(firstName='Nara',lastName='Shikamaru',salary='1350000')
+
+BULK_CREATE:
+Ennél a parancsnál egyszerre több felhasználót tudunk beregisztrálni a táblázatba.
+Employee.objects.bulk_create([Employee(firstName='Uzumaki',lastName='Boruto',salary=850000),Employee(firstName='Uchiha',lastName='Obito',salary=990000)])
+
+DELETE:
+A delete paranccsal törölni lehet a kiválasztott felhasználókat. get() és filter() segítségével teljesen egyedi módon ki lehet választani a prioritásokat.
+Employee.objects.get(firstName='Piri').delete()
+
+UPDATE:
+Ez a parancs csak a MariaDB és MYSQL rendszeren használható, az SQLITE figyelmen kívül hagyja.
+MYSQL:
+Employee.objects.get(firstName='Nara').update(email='narashikamaru@gmail.com')
+SQLITE:
+emp=Employee.objects.get(firstName='Nara')
+emp.email='narashikamaru'
+emp.save()
