@@ -6,6 +6,7 @@ def userRegistrationForm(request):
     form_dict={'form':form}
     if request.method=='POST':
         form=forms.UserRegistration(request.POST)
+        form_dict={'form':form}
         if form.is_valid():
             print("Form is valid")
             print('Vezeték Név:', form.cleaned_data['firstName'])
