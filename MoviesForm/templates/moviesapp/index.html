@@ -5,16 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Project</title>
+    <title>Sites of Movies</title>
 </head>
 <body>
-    <h1>Add Project:</h1>
-    <form method="post">
-        <table>
-            {{ form.as_table}}
-            {% csrf_token %}
-        </table>
-        <input type="submit" value="Submit">
-    </form>
+    <h1>Sites of Movies!</h1>
+    <a href="moviesList/">Movies List</a><br>
+    <a href="addMovies/">Add Movies</a>
 </body>
 </html>
