@@ -20,12 +20,15 @@
         </thead>
         {% for student in students %}
         <tr>
-            <td>{{stundent.id}}</td>
-            <td>{{stundent.firstName}}</td>
-            <td>{{stundent.lastName}}</td>
-            <td>{{stundent.testScore}}</td>
+            <td>{{student.id}}</td>
+            <td>{{student.firstName}}</td>
+            <td>{{student.lastName}}</td>
+            <td>{{student.testScore}}</td>
+            <td><a href="delete/{{student.id}}">Delete</a></td>
+            <td><a href="update/{{student.id}}">Update</a></td>
         </tr>
         {% endfor %}
     </table>
+    <a href="create/">Create Student</a>
 </body>
 </html>
