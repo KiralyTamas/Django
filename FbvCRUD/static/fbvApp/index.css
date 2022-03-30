@@ -1,0 +1,13 @@
+h1{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2.5rem;
+    margin:2rem 0 0 2rem;
+}
+table{
+    margin:2rem 0 0 2rem;
+    padding: 2px;
+}
+th,td{
+    border: 1px solid black;
+    box-sizing: border-box;
+}
