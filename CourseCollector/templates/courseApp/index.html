@@ -16,12 +16,14 @@
             <thead>
                 <th>Course Name</th>
                 <th>Description</th>
+                <th>Instructor</th>
                 <th>Rates</th>
             </thead>
             {% for row in course %}
             <tr>
                 <td>{{row.courseName}}</td>
                 <td>{{row.description}}</td>
+                <td>{{row.instructor}}</td>
                 <td>{{row.rates}}</td>
                 <td><a href="updateCourse/{{row.id}}">Update</a></td>
                 <td><a href="deleteCourse/{{row.id}}">Delete</a></td>
