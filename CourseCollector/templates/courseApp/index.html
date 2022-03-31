@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course List</title>
+</head>
+<body>
+    <h1>Course List:</h1>
+    {% if course %}
+        <table>
+            <thead>
+                <th>Course Name</th>
+                <th>Description</th>
+                <th>Rates</th>
+            </thead>
+            {% for row in course %}
+            <tr>
+                <td>{{row.courseName}}</td>
+                <td>{{row.description}}</td>
+                <td>{{row.rates}}</td>
+                <td><a href="updateCourse/{{row.id}}">Update</a></td>
+                <td><a href="deleteCourse/{{row.id}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h3>Haven't got any information</h3>
+    {% endif %}
+    <a href="addCourse/">Add Course</a>
+</body>
+</html>

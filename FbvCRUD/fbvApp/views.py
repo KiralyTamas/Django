@@ -27,11 +27,8 @@ def updateStudent(request,id):
     form=StudentForm(instance=student)
     student_dict={'form':form}
     if request.method=='POST':
-        print("1")
         form=StudentForm(request.POST,instance=student)
-        print("2")
         if form.is_valid():
-            print("3")
             form.save()
             return redirect('/')
     return render(request,'fbvApp/update.html',student_dict)
