@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{student.firstName}} {{student.lastName}}</title>
 </head>
 <body>
     <h1>Student Details:</h1>
-    <ol>
-        <h3><li>First Name: {{student.firstName}}</li></h3>
-        <h3><li>Last Name: {{student.lastName}}</li></h3>
-        <h3><li>Test Score: {{student.testScore}}</li></h3>
-    </ol>
+    <table>
+        <thead></thead>
+        <th><h3>First Name</h3></th>
+        <th><h3>Last Name</h3></th>
+        <th><h3>Test Score</h3></th>
+    </thead>
+        <tr>
+            <td>{{student.firstName}}</td>
+            <td>{{student.lastName}}</td>
+            <td>{{student.testScore}}</td>
+        </tr>
+    </table>
+    <a href=" / ">Student List</a>
 </body>
 </html>
