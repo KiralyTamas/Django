@@ -9,6 +9,26 @@
 </head>
 <body>
     <h1>Course Detail:</h1><br>
-    <ul></ul>
+    <table>
+        <tr>
+            <td>Course Name :</td>
+            <td>{{course.courseName}}</td>
+        </tr>
+        <tr>    
+            <td>Course Name :</td>
+            <td>{{course.description}}</td>
+        </tr>
+        <tr>
+            <td>Course Name :</td>
+            <td>{{course.instructor}}</td>
+        </tr>
+        <tr>
+            <td>Course Name :</td>
+            <td>{{course.rates}}</td>
+        </tr>
+    </table>
+    <a href='/'><button>Tanfolyam Lista</button></a>
+    <a href="/update/{{course.id}}"><button>Update</button></a>
+    <a href="/delete/{{course.id}}"><button>Delete</button></a>
 </body>
 </html>

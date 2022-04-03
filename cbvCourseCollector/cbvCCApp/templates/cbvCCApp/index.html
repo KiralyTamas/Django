@@ -25,11 +25,12 @@
             <td>{{row.description}}</td>
             <td>{{row.instructor}}</td>
             <td>{{row.rates}}</td>
-            <td><a href="update/">Update</a></td>
-            <td><a href="delete/">Delete</a></td>
+            <td><a href="update/{{row.id}}">Update</a></td>
+            <td><a href="delete/{{row.id}}">Delete</a></td>
         </tr>
         {% endfor %}
-    </table>
+    </table><br>
+    <a href="create/"><button>Create Course</button></a>
     {% else %}
         <h1>Haven't got any information</h1>
     {% endif %}

@@ -5,17 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{course.courseName}} Updating</title>
+    <title>Create Course</title>
 </head>
 <body>
-    <h1>{{course.courseName}} Updating:</h1>
-    <form method='post'>
+    <h1>Creating Course:</h1>
+    <form method="post">
         <table>
             {{form.as_table}}
             {% csrf_token %}
         </table>
-        <button type="submit">Update</button>
-        <a href='/'><button>Tanfolyam Lista</button></a>
+        <button type="submit">Create</button>
     </form>
 </body>
 </html>
