@@ -1,13 +1,7 @@
-<!DOCTYPE html>
+{% extends 'cbvCCApp/base.html' %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{course.courseName}} Deleting:</title>
-</head>
-<body>
+    {% block title %}{{course.courseName}} Deleting:{% endblock title %}
+{% block body_block %}
     <h1>You deleting the {{course.courseName}} course:</h1><br>
     <h3>Are you sure to deleting the {{course.courseName}} course?</h3><br>
     <form method="post">
@@ -15,5 +9,4 @@
         <button type="submit">Delete</button>
     </form>
     <a href="/{{course.id}}"><button>Back</button></a>
-</body>
-</html>
+    {% endblock body_block %}
