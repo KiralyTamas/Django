@@ -4,6 +4,7 @@
 {% block css1%}<link rel="stylesheet" href="{%static 'cbvCCApp/reset.css'%}">{% endblock css1 %}
 {% block css2%}<link rel="stylesheet" href="{%static 'cbvCCApp/index.css'%}">{% endblock css2 %}
 {% block body_block %}
+{% load my_tags %}
     <h1>Course List:</h1>
     {% if course_list %}
     <table>
@@ -15,7 +16,7 @@
         </thead>
         {% for row in course_list %}
         <tr>
-            <td><a href="/{{row.id}}">{{row.courseName}}</a></td>
+            <td><a href="/{{row.id}}">{{row.courseName|myUpper}}</a></td>
             <td>{{row.description}}</td>
             <td>{{row.instructor}}</td>
             <td>{{row.rates}}</td>
