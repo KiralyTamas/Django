@@ -16,8 +16,8 @@
         </thead>
         {% for row in course_list %}
         <tr>
-            <td><a href="/{{row.id}}">{{row.courseName|myUpper}}</a></td>
-            <td>{{row.description}}</td>
+            <td><a href="/{{row.id}}">{{row.courseName|firstLetter}}</a></td>
+            <td>{{row.description|everyFirstLetter}}</td>
             <td>{{row.instructor}}</td>
             <td>{{row.rates}}</td>
             <td><a href="update/{{row.id}}">Update</a></td>
