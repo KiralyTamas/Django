@@ -9,8 +9,7 @@ def pageCount(request):
     return render(request, 'sessionApp/count.html',{'count':count})
 
 def index(request):
-    raise Exception("Valami")
-    return render(request, 'sessionApp/index.html')
+    return render(request, 'sessionApp/inde.html')
 
 def addItem(request):
     form=ItemForm()
@@ -18,7 +17,7 @@ def addItem(request):
         name=request.POST['name']
         quantity=request.POST['quantity']
         request.session[name]=quantity
-    return render(request,'sessionApp/addItem.html',{'form':form})
+    return render(request,'sessionApp/addItem.html',{'form':fom})
 
 def displayCart(request):
     return render(request, 'sessionApp/displayItems.html')
