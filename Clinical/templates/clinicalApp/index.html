@@ -23,9 +23,13 @@
                 <td>{{patient.firstName}}</td>
                 <td>{{patient.lastName}}</td>
                 <td>{{patient.age}}</td>
+                <td><button><a href="/update/{{patient.id}}">Update</a></button></td>
+                <td><button><a href="/delete/{{patient.id}}">Delete</a></button></td>
+                <td><button><a href="/analyse/{{patient.id}}">Analyse</a></button></td>
             </tr>
         {% endfor %}
     </table>
     {% endif %}
+    <button><a href="/create">Add Patient</a></button>
 </body>
 </html>

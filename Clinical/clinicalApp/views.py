@@ -12,12 +12,15 @@ class PatientCreateView(CreateView):
     model=Patient
     success_url=reverse_lazy('index')
     fields=('firstName','lastName','age')
+    template_name='clinicalApp/create.html'
     
 class PatientUpdateView(UpdateView):
     model=Patient
     success_url=reverse_lazy('index')
     fields=('firstName','lastName','age')
+    template_name='clinicalApp/update.html'
     
 class PatientDeleteView(DeleteView):
     model=Patient
     success_url=reverse_lazy('index')
+    template_name='clinicalApp/delete.html'
