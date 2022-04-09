@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Patient</title>
+</head>
+<body>
+    <h1>Are you really Delete this Patient?</h1>
+    <form method="post">
+        {{patient.firstName}} {{patient.lastName}}
+        {% csrf_token %}
+        <p></p>
+        <button type="submit">Delete</button>
+    </form>
+</body>
+</html>
