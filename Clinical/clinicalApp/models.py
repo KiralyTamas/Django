@@ -5,6 +5,9 @@ class Patient(models.Model):
     lastName=models.CharField(max_length=25)
     age=models.IntegerField()
     
+    def __str__(self):
+        return self.firstName+str(" ")+self.lastName
+
 class ClinicalData(models.Model):
     COMPONENT_NAME=[('hw','Height/Weight'),('bp','Blood Pressure'),('heartrate','Heart Rate')]
     componentName=models.CharField(choices=COMPONENT_NAME, max_length=20)

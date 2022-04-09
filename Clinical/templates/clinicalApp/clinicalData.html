@@ -1,0 +1,31 @@
+{% extends 'clinicalApp/base.html' %}
+{% load static %}
+{% block reset %}<link rel="stylesheet" href="{% static 'CSS/reset.css' %}">{% endblock reset %}
+{% block css %}<link rel="stylesheet" href="{% static 'CSS/index.css' %}">{% endblock css %}
+{% block title %}Clinical Data Creation{% endblock title %}
+{% block h1 %}Patiens Details{% endblock h1 %}
+{% block body_block %}
+    <table>
+        <tr>
+            <td>First Name: </td>
+            <td>{{patient.firstName}}</td>
+        </tr>
+        <tr>
+            <td>Last Name: </td>
+            <td>{{patient.lastName}}</td>
+        </tr>
+        <tr>
+            <td>Age: </td>
+            <td>{{patient.age}}</td>
+        </tr>
+    </table>
+    <h1 class='name'>Patient Clinical Data:</h1>
+    <form method="post">
+        <table>
+            {{form.as_table}}
+            {% csrf_token %}
+        </table>
+        <button type="submit" class='bottom' >Save</button>
+    </form>
+    <a href="/"><button class='bottom'>Back</button></a>
+{% endblock body_block %}

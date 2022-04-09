@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient List</title>
-</head>
-<body>
-    <h1>Patients:</h1>
-    
+{% extends 'clinicalApp/base.html' %}
+{% load static %}
+{% block reset %}<link rel="stylesheet" href="{% static 'CSS/reset.css' %}">{% endblock reset %}
+{% block css %}<link rel="stylesheet" href="{% static 'CSS/index.css' %}">{% endblock css %}
+{% block title %}Patient List{% endblock title %}
+{% block h1 %}Patiens:{% endblock h1 %}
+{% block body_block %}
     {% if patient_list %}    
     <table>
         <thead>
@@ -23,6 +19,7 @@
                 <td>{{patient.firstName}}</td>
                 <td>{{patient.lastName}}</td>
                 <td>{{patient.age}}</td>
+                <td><button><a href="/addData/{{patient.id}}">Add Data</a></button></td>
                 <td><button><a href="/update/{{patient.id}}">Update</a></button></td>
                 <td><button><a href="/delete/{{patient.id}}">Delete</a></button></td>
                 <td><button><a href="/analyse/{{patient.id}}">Analyse</a></button></td>
@@ -30,6 +27,5 @@
         {% endfor %}
     </table>
     {% endif %}
-    <button><a href="/create">Add Patient</a></button>
-</body>
-</html>
+    <a href="/create"><button class='bottom'>Add Patient</button></a>
+    {% endblock body_block %}

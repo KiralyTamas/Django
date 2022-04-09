@@ -1,0 +1,36 @@
+.name{
+    font-size: 2rem;
+    margin: 1.5rem;
+}
+table{
+    width: max-content;
+    height: max-content;
+    margin-left: 1.5rem;
+    border: 2px solid black
+
+}
+th{
+    border: 1px solid gray;
+    font-weight: bolder;
+}
+tr{
+    width: 100%;
+    height: max-content;
+}
+td{
+    width: 33%;
+    border: 2px solid black;
+    text-align: center;
+}
+td div{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+p{
+    word-wrap: break-word;
+    font-size: 1.5rem;
+}
+.bottom {
+    margin-top: 1rem;
+}

@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Patient</title>
-</head>
-<body>
-    <h1>Are you really Delete this Patient?</h1>
+{% extends 'clinicalApp/base.html' %}
+{% load static %}
+{% block reset %}<link rel="stylesheet" href="{% static 'CSS/reset.css' %}">{% endblock reset %}
+{% block css %}<link rel="stylesheet" href="{% static 'CSS/index.css' %}">{% endblock css %}
+{% block title %}Delete Patient{% endblock title %}
+{% block h1 %}Are you really Delete this Patient?{% endblock h1 %}
+{% block body_block %}
     <form method="post">
         {{patient.firstName}} {{patient.lastName}}
         {% csrf_token %}
         <p></p>
-        <button type="submit">Delete</button>
+        <button class='bottom' type="submit">Delete</button>
     </form>
-</body>
-</html>
+    <a href="/"><button class='bottom'>Back</button></a>
+    {% endblock body_block %}
