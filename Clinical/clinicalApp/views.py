@@ -29,7 +29,6 @@ class PatientDeleteView(DeleteView):
 def addData(request,**kwargs):
     form=ClinicalForm()
     patient=Patient.objects.get(id=kwargs['pk'])
-    print(kwargs)
     add_dict={'form':form,'patient':patient}
     if request.method=='POST':
         form=ClinicalForm(request.POST)
