@@ -1,0 +1,23 @@
+{% extends 'clinicalApp/base.html' %}
+{% load static %}
+{% block reset %}<link rel="stylesheet" href="{% static 'CSS/reset.css' %}">{% endblock reset %}
+{% block css %}<link rel="stylesheet" href="{% static 'CSS/index.css' %}">{% endblock css %}
+{% block title %}Clinical Data Report{% endblock title %}
+{% block h1 %}Patien Analyzed Data{% endblock h1 %}
+{% block body_block %}
+<table>
+    <thead>
+        <th>Component Name</th>
+        <th>Component Value</th>
+        <th>Measure Date Time</th>
+    </thead>
+    {% for eachEntry in data %}
+    <tr>
+        <td>{{eachEntry.componentName}}</td>
+        <td>{{eachEntry.componentValue}}</td>
+        <td>{{eachEntry.measuredDataTime}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="/"><button class="bottom">Home</button></a>
+{% endblock body_block %}
