@@ -17,7 +17,7 @@ def addItem(request):
         name=request.POST['name']
         quantity=request.POST['quantity']
         request.session[name]=quantity
-    return render(request,'sessionApp/addItem.html',{'form':fom})
+    return render(request,'sessionApp/addItem.html',{'form':form})
 
 def displayCart(request):
     return render(request, 'sessionApp/displayItems.html')
